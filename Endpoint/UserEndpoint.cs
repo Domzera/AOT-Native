@@ -9,15 +9,22 @@ namespace WebApplication1.Endpoint
     {
         public static void Map(WebApplication app)
         {
-
-            //TESTE DE URL
-            //app.MapGet("/ping", () => "pong");
-
-            //Retirado do REGISTER
-            //var createdUser = await userRepository.CreateUserAsync(user);
-            //return Results.Created($"/users/{createdUser.Id}", createdUser);
+            ///<summary>
+            /// Esse pedaço de código serve para testar se a API está rodando.
+            /// Se tem retorno "pong" é porque está tudo ok.
+            /// --==* TESTE DE URL *==--
+            ///   app.MapGet("/ping", () => "pong");
+            /// Esse código é muito útil para testes iniciais de deploy e verificação rápida do status da API.
+            ///</summary >
 
             //GETALL USERS
+            /// <summary>
+            /// O endpoint de obtenção de todos os usuários permite recuperar uma lista completa de todos os
+            /// usuários cadastrados no sistema.
+            /// Será mais util para a administração do sistema.
+            /// NÃO fica disponivel para usuários do FRONTEND.
+            /// Caso ocorra algum erro durante a operação, o erro será registrado utilizando a classe ErrorReport.
+            ///</summary>
             app.MapGet("/user/all", async (
                 IUserRepository userRepository,
                 ErrorReport errorR) =>
@@ -37,6 +44,11 @@ namespace WebApplication1.Endpoint
             });
 
             //GETBYID USER
+            /// <summary>
+            /// O endpoint de obtenção de usuário por ID permite buscar um usuário específico com base em seu identificador único.
+            /// Fica disponivel para usuários do FRONTEND.
+            /// caso ocorra algum erro durante a operação, o erro será registrado utilizando a classe ErrorReport.
+            /// </summary>
             app.MapGet("/user/getbyid/{id}", async (
                 int id,
                 IUserRepository userRepository,
@@ -59,6 +71,11 @@ namespace WebApplication1.Endpoint
             });
 
             //CREATE USER
+            /// <summary>
+            /// O endpoint de registro de usuário permite que novos usuários sejam adicionados ao sistema.
+            /// Fica disponivel para usuários do FRONTEND.
+            /// Caso ocorra algum erro durante a operação, o erro será registrado utilizando a classe ErrorReport.
+            /// </summary>
             app.MapPost("/user/register", async (
                 RegisterUserDTO user,
                 [FromServices]IUserRepository userRepository,
@@ -80,29 +97,17 @@ namespace WebApplication1.Endpoint
             });
 
             //TESTE DE URL
+            /// <summary>
+            /// O endpoint de ping serve para testar se a API está rodando.
+            /// NÃO fica disponivel para usuários do FRONTEND.
+            /// Foi util para testes iniciais de deploy e verificação rápida do status da API.
+            /// --==** NÃO ficara disponivel em produção.**==--
+            /// </summary>
             app.MapGet("/ping", () =>
             {
                 Console.WriteLine("Ping recebido");
                 return Results.Ok("pong");
             });
-            //app.MapPost("/user/register", (HttpContext context) =>
-            //{
-            //    Console.WriteLine("Register endpoint hit");
-            //    return Results.Ok("User registered");
-            //});
-
-            /*
-            app.MapPut("/users/{id}", async (int id, User user, IUserRepository userRepository) =>
-            {
-                var updatedUser = await userRepository.UpdateUserAsync(id, user);
-                return updatedUser is not null ? Results.Ok(updatedUser) : Results.NotFound();
-            });
-            app.MapDelete("/users/{id}", async (int id, IUserRepository userRepository) =>
-            {
-                var deleted = await userRepository.DeleteUserAsync(id);
-                return deleted ? Results.NoContent() : Results.NotFound();
-            });*/
-            //return "User endpoints mapped.";
         }
     }
 }

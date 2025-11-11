@@ -11,6 +11,11 @@ namespace WebApplication1.Endpoint
     /// </summary>
     public class Endpoints
     {
+        /// <summary>
+        /// As injeções de outras classes nescessárias para o funcionamento dos endpoints são feitas via construtor.
+        /// As classes usadas são IUserRepository para operações de banco de dados relacionadas a usuários e
+        /// ErrorReport para registrar erros que possam ocorrer durante essas operações.
+        /// </summary>
         private readonly IUserRepository _userRep;
         private readonly ErrorReport _error;
 
@@ -21,6 +26,7 @@ namespace WebApplication1.Endpoint
 
         }
         //REGISTRO DE NOVO USUÁRIO
+
         /// <summary>
         /// Registra um novo usuário no sistema.
         /// <remarks>Valida cada atributo do usuário antes de criar o registro, pois o AOT não trabalha com frameworks de validação.
@@ -28,20 +34,24 @@ namespace WebApplication1.Endpoint
         /// porém em uma tabela separada, afim de facilitar a busca e análise dos erros.
         /// É um metodo asincrono, que espera ser terminado para dar o retorno</remarks>
         /// </summary>
-        /// <param name="user">É o DTO que representa os dados de registro do usuário</param>
+        /// <param name="user">É o REGISTERUSERDTO que representa os dados de registro do usuário</param>
         /// <returns><see cref="RegisterUserDTO"/> retona o RegisterUserDTO que não contém ID, pois o mesmo é gerado automatticamente pelo PostgreSQL</returns>
         public async Task<RegisterUserDTO> Register(RegisterUserDTO user)
         {
-            //if(new RegisterValidation().UserValidation(user))
-            //{
-            //    _error.AddErrorRegister("Invalid user data", "Register User - ENDPOINT");
-            //    return null;
-            //}
+            ///<summary>
+            /// Realiza a validação dos dados do usuário,na classe REGISTERVALIDATION.CS, antes de registrá-lo.
+            /// Na REGISTERVALIDATION.CS, cada atributo do usuário é verificado para garantir que atende aos critérios necessários.
+            /// O sistema AOT não trabalha com frameworks de nenhum tipo, então a validação é feita manualmente para cada atributo.
+            /// </summary>
             try
             {
                 var createdUser = await _userRep.Add(user);
                 return createdUser;
             }
+            ///<summary>
+            ///Caso haja algum erro durante o processo de registro, ele é capturado e registrado usando a classe ErrorReport.
+            ///Essa calsse tem um BD independente para armazenar os erros, facilitando a análise e solução de problemas.
+            ///</summary>
             catch (Exception ex)
             {
                 var operationType = "Register User - ENDPOINT";
@@ -51,6 +61,7 @@ namespace WebApplication1.Endpoint
         }
 
         //BUSCAR USUÁRIO POR ID
+
         /// <summary>
         /// Busca de usuário pelo ID.
         /// </summary>
@@ -60,7 +71,7 @@ namespace WebApplication1.Endpoint
         /// <param name="id">O identificador unico do usuário. Tem que ser um integer positivo.</param>
         /// <returns>Um <see cref="UserDTO"/> representa identificador especifico do usuário. Retorna um resultado de
         /// bad request se o usuário não for encontrado ou ocorrer um erro.
-        /// O erro e o tipo de função fica salvo ma tabela de erros junto ao banco de dados do usuário só que em tabelas separadas.</returns>
+        /// O erro e o tipo de função fica salvo na tabela de erros junto ao banco de dados do usuário só que em tabelas separadas.</returns>
         public async Task<UserDTO> FindById(int id)
         {
             try
@@ -76,12 +87,15 @@ namespace WebApplication1.Endpoint
         }
 
         //BUSCA TODOS USUÁRIOS
+
         /// <summary>
         /// É um metodo asincrono que espera ternar a requisção para retornar a lista de todos os usuários, ativos e inativos.
+        /// Esse Endpoint é o que NÃO fica a disposição para o front-end consumir. Será usado mais pela administração do sistema.
         /// </summary>
         /// <returns>Uma task asincrona que representa a operação de busca de todos os usuários e retorna
         /// uma lista de objetos <see cref="UserDTO"/>.
         /// Retorna <see langword="null"/> caso ocorra um erro durante a recuperação da lista de usuários.</returns>
+        /// Os erros são registrados na tabela de erros do banco de dados.
         public async Task<List<UserDTO>> FindAll()
         {
             try
@@ -98,8 +112,10 @@ namespace WebApplication1.Endpoint
         }
 
         //BUSCA TODOS USUÁRIOS ATIVOS
+
         /// <summary>
         /// Retorna uma lista de todos os usuários ativos.
+        /// Esse Endpoint é o que fica a disposição para o front-end consumir.
         /// </summary>
         /// <returns> Uma Task asincrona que representa a operação de busca de todos os usuários ativos.
         /// Seu retorno é uma lista de objetos <see cref="UserDTO"/>, que inclui o ID.
@@ -120,13 +136,15 @@ namespace WebApplication1.Endpoint
         }
 
         //ALTERAR USUÁRIO
+
         /// <summary>
         /// Atualiza o usuário com o id especificado.
         /// </summary>
         /// <param name="id"> O Identificador unico do usuário a ser atualizado.</param>
         /// <returns>Um <see cref="UserDTO"/> representa o usuário atualizado
         /// Retornando <see langword="null"/> se a atualização do usuário apresentar algum erro </returns>
-        public async Task<UserDTO> Alter(int id, [FromBody]RegisterUserDTO atualiza)
+        /// Casso ocorra algum erro, ele é registrado na tabela de erros do banco de dados.
+        public async Task<UserDTO> Alter(int id, [FromBody]UserUpdateDTO atualiza)
         {
             try
             {
@@ -142,12 +160,14 @@ namespace WebApplication1.Endpoint
         }
 
         //DELETA USUÁRIO => Transforma o "ATIVO" em "INATIVO" trocando o 1 po 0
+
         /// <summary>
         /// Altera o atributo ATIVO, do Banco de dados, de um usuário para inativo.
         /// Troca o valor 1 por 0 no campo ATIVO.
         /// </summary>
         /// <param name="id">É o identificador unico do usuário que será desativado. O ID tem que ser de um usuário valido.</param>
         /// <returns><see langword="true"/> se o usuário for desativado com sucesso; caso contrário, <see langword="false"/>.</returns>
+        /// Caso ocorra algum erro, ele é registrado na tabela de erros do banco de dados.
         public bool Delete(int id)
         {
             try

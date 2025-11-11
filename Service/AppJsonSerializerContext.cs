@@ -12,6 +12,7 @@ namespace WebApplication1.DTO
 {
     [JsonSerializable(typeof(RegisterUserDTO))]
     [JsonSerializable(typeof(UserDTO))]
+    [JsonSerializable(typeof(UserUpdateDTO))]
     [JsonSerializable(typeof(List<UserDTO>))]
     [JsonSerializable(typeof(ErrorReport))]
     [JsonSerializable(typeof(Endpoints))]

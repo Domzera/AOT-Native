@@ -61,7 +61,7 @@ app.MapPost("/user/register", async (RegisterUserDTO regUser,Endpoints endpoint)
     return await endpoint.Register(regUser);
 });
 // O /alter/{id} altera os dados do usuario pelo ID
-app.MapPut("/user/alter/{id}", async (int id,[FromBody]RegisterUserDTO atualiza, Endpoints endpoint) =>
+app.MapPut("/user/alter/{id}", async (int id,[FromBody]UserUpdateDTO atualiza, Endpoints endpoint) =>
 {
     var updated = await endpoint.Alter(id, atualiza);
     return Results.Ok(updated);
