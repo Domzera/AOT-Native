@@ -2,6 +2,7 @@
 using Npgsql;
 using WebApplication1.DTO;
 using WebApplication1.Interface;
+using WebApplication1.Service;
 
 namespace WebApplication1.Repository
 {
@@ -14,10 +15,12 @@ namespace WebApplication1.Repository
     public class UserRepository : IUserRepository
     {
         private readonly string _conectionString;
+        private readonly RegisterValidation _validation;
 
-        public UserRepository(string connectionString)
+        public UserRepository(string connectionString,RegisterValidation validation)
         {
             _conectionString = connectionString;
+            _validation = validation;
         }
         //Registro de Usuário
         /// <summary>
@@ -31,36 +34,72 @@ namespace WebApplication1.Repository
         /// <returns>Retorna o objeto USUARIO recem cadastrado ou uma mensagem de erro ao registrar.</returns>
         public Task<RegisterUserDTO> Add(RegisterUserDTO usuario)
         {
-            ///<summary>
-            /// Devemos validar se o EMAIL e PASSWORD não são nulos ou vazios antes de inserir no banco de dados.
-            /// Todos os parametros são validados na classe REGISTERVALIDATION.CS antes de chegar aqui.
-            try
-            {
-                using var cnx = new NpgsqlConnection(_conectionString);
-                cnx.Open();
-                var cmd = cnx.CreateCommand();
 
-                cmd.CommandText = "INSERT INTO userTable " +
-                    " (userFirstName, userLastName, userMail, userPassword, userPhonenumber, userAtivo, userDate, userCPF)" +
-                    " VALUES (@userFirstName, @userLastName, @Email, @Password, @PhoneNumber, @Ativo, @Time, @CPF)";
-                cmd.Parameters.Add(new NpgsqlParameter("@userFirstName", usuario.Name));
-                cmd.Parameters.Add(new NpgsqlParameter("@userLastName", usuario.LastName));
-                cmd.Parameters.Add(new NpgsqlParameter("@Email", usuario.Email));
-                cmd.Parameters.Add(new NpgsqlParameter("@Password", usuario.Password));
-                cmd.Parameters.Add(new NpgsqlParameter("@PhoneNumber", usuario.PhoneNumber));
-                cmd.Parameters.Add(new NpgsqlParameter("@CPF", usuario.CPF));
-                cmd.Parameters.Add(new NpgsqlParameter("@Ativo", value: 1));
-                cmd.Parameters.Add(new NpgsqlParameter("@Time", DateTime.Now));
-                cmd.ExecuteNonQuery();
-                cnx.Close();
-            }
-            catch (Exception ex)
+            ///<summary>
+            ///Valida os atributos do usuário antes de inseri-lo no banco de dados.
+            ///A classe REGISTERVALIDATION.CS é responsável por validar cada atributo do usuário.
+            ///</summary>
+            if (_validation.RegisterUserValidation(usuario) == true)
             {
-                Console.WriteLine("Erro ao adicionar usuário: " + ex.Message);
-                return Task.FromResult<RegisterUserDTO>(result: null);
+                ///<summary>
+                /// Devemos validar se o EMAIL e PASSWORD não são nulos ou vazios antes de inserir no banco de dados.
+                /// Todos os parametros são validados na classe REGISTERVALIDATION.CS antes de chegar aqui.
+                try
+                {
+                    using var cnx = new NpgsqlConnection(_conectionString);
+                    cnx.Open();
+                    var cmd = cnx.CreateCommand();
+
+                    cmd.CommandText = "INSERT INTO userTable " +
+                        " (userFirstName, userLastName, userMail, userPassword, userPhonenumber, userAtivo, userDate, userCPF)" +
+                        " VALUES (@userFirstName, @userLastName, @Email, @Password, @PhoneNumber, @Ativo, @Time, @CPF)";
+                    cmd.Parameters.Add(new NpgsqlParameter("@userFirstName", usuario.Name));
+                    cmd.Parameters.Add(new NpgsqlParameter("@userLastName", usuario.LastName));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Email", usuario.Email));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Password", usuario.Password));
+                    cmd.Parameters.Add(new NpgsqlParameter("@PhoneNumber", usuario.PhoneNumber));
+                    cmd.Parameters.Add(new NpgsqlParameter("@CPF", usuario.CPF));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Ativo", value: 1));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Time", DateTime.Now));
+                    cmd.ExecuteNonQuery();
+                    cnx.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao adicionar usuário: " + ex.Message);
+                    var errorService = new RegisterUserDTO
+                    {
+                        Name = "Erro ao adicionar usuário: ",
+                        LastName = ex.Message,
+                        Email = "",
+                        Password = "",
+                        PhoneNumber = "",
+                        CPF = "",
+                        Ativo = 0,
+                        data = DateTime.Now
+                    };
+                    return Task.FromResult<RegisterUserDTO>(errorService);
+                };
+                return Task.FromResult(usuario);
             }
-            ;
-            return Task.FromResult(usuario);
+            else
+            {
+                Console.WriteLine("Erro na validação dos dados do usuário.");
+                var errorService = new RegisterUserDTO
+                {
+                    Name = "Erro ao adicionar usuário: ",
+                    LastName = "",
+                    Email = "",
+                    Password = "",
+                    PhoneNumber = "",
+                    CPF = "",
+                    Ativo = 0,
+                    data = DateTime.Now
+                };
+                return Task.FromResult<RegisterUserDTO>(errorService);
+            }
+
+            
         }
         //Delete lógico do usuário
         /// <summary>

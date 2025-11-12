@@ -22,6 +22,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 // Cada serviço tem que ser registrado para que possa ser injetado nos endpoints HTTP
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ErrorReport>();
+builder.Services.AddScoped<RegisterValidation>();
 
 // Adiciona a string de conexão ao container de serviços
 //No meu caso estou usando o PostgreSQL 17.
