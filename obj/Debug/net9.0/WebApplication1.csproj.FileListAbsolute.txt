@@ -71,10 +71,10 @@ C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\staticwebas
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\WebAppli.7D14BD69.Up2Date
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\WebApplication1.dll
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\refint\WebApplication1.dll
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\WebApplication1.pdb
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\ref\WebApplication1.dll
+C:\Users\Admin\Desktop\Agency\Teste\WebApplication1\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

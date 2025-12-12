@@ -23,6 +23,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ErrorReport>();
 builder.Services.AddScoped<RegisterValidation>();
+builder.Services.AddScoped<Crypter>();
 
 // Adiciona a string de conexão ao container de serviços
 //No meu caso estou usando o PostgreSQL 17.
@@ -40,6 +41,12 @@ var app = builder.Build();
 
 // Define os endpoints HTTP
 // Esses endpoints estão no Program.cs mas poderiam ser definidos em arquivo serparado usando o Map
+
+//Esta é a pagina de hello world da minha API em AOT_Native
+app.MapGet("/hello", (Endpoints endpoint) =>
+{
+    return endpoint.hello();
+});
 
 // O /byid/{id} busca os usuarios pelo ID
 app.MapGet("/user/byid/{id}", (int id,Endpoints endpoint) =>

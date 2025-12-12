@@ -1,11 +1,21 @@
 @WebApplication1_HostAddress = http://localhost:5201
 
-GET {{WebApplication1_HostAddress}}/todos/
+GET {{WebApplication1_HostAddress}}/hello/
 Accept: application/json
 
 ###
 
-GET {{WebApplication1_HostAddress}}/todos/1
+GET {{WebApplication1_HostAddress}}/user/all/
+Accept: application/json
+
+###
+
+GET {{WebApplication1_HostAddress}}/user/active/
+Accept: application/json
+
+###
+
+GET {{WebApplication1_HostAddress}}/user/getbyid/1
 Accept: application/json
 
 ###

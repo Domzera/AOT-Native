@@ -16,11 +16,13 @@ namespace WebApplication1.Repository
     {
         private readonly string _conectionString;
         private readonly RegisterValidation _validation;
+        private readonly Crypter _crypter;
 
-        public UserRepository(string connectionString,RegisterValidation validation)
+        public UserRepository(string connectionString,RegisterValidation validation,Crypter crypter)
         {
             _conectionString = connectionString;
             _validation = validation;
+            _crypter = crypter;
         }
         //Registro de Usuário
         /// <summary>
@@ -40,10 +42,24 @@ namespace WebApplication1.Repository
             ///A classe REGISTERVALIDATION.CS é responsável por validar cada atributo do usuário.
             ///</summary>
             if (_validation.RegisterUserValidation(usuario) == true)
-            {
+            {     
                 ///<summary>
-                /// Devemos validar se o EMAIL e PASSWORD não são nulos ou vazios antes de inserir no banco de dados.
-                /// Todos os parametros são validados na classe REGISTERVALIDATION.CS antes de chegar aqui.
+                /// Refazemos os atriutos do SUSUARIO para pode HASHEAR o password.
+                /// Neste processo já aproveitamos para incrementar os atributos que serão inseridos
+                ///     no Banco de Dados como USUARIO.ATIVO e USUARIO.DATA.
+                
+                var user = new RegisterUserDTO
+                {
+                    Name = usuario.Name,
+                    LastName = usuario.LastName,
+                    Email = usuario.Email,
+                    Password = _crypter.Hasher(usuario.Password),
+                    PhoneNumber = usuario.PhoneNumber,
+                    CPF = usuario.CPF,
+                    Ativo = 1,
+                    data = DateTime.Now
+                };
+                
                 try
                 {
                     using var cnx = new NpgsqlConnection(_conectionString);
@@ -53,14 +69,14 @@ namespace WebApplication1.Repository
                     cmd.CommandText = "INSERT INTO userTable " +
                         " (userFirstName, userLastName, userMail, userPassword, userPhonenumber, userAtivo, userDate, userCPF)" +
                         " VALUES (@userFirstName, @userLastName, @Email, @Password, @PhoneNumber, @Ativo, @Time, @CPF)";
-                    cmd.Parameters.Add(new NpgsqlParameter("@userFirstName", usuario.Name));
-                    cmd.Parameters.Add(new NpgsqlParameter("@userLastName", usuario.LastName));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Email", usuario.Email));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Password", usuario.Password));
-                    cmd.Parameters.Add(new NpgsqlParameter("@PhoneNumber", usuario.PhoneNumber));
-                    cmd.Parameters.Add(new NpgsqlParameter("@CPF", usuario.CPF));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Ativo", value: 1));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Time", DateTime.Now));
+                    cmd.Parameters.Add(new NpgsqlParameter("@userFirstName", user.Name));
+                    cmd.Parameters.Add(new NpgsqlParameter("@userLastName", user.LastName));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Email", user.Email));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Password", user.Password));
+                    cmd.Parameters.Add(new NpgsqlParameter("@PhoneNumber", user.PhoneNumber));
+                    cmd.Parameters.Add(new NpgsqlParameter("@CPF", user.CPF));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Ativo", user.Ativo));
+                    cmd.Parameters.Add(new NpgsqlParameter("@Time", user.data));
                     cmd.ExecuteNonQuery();
                     cnx.Close();
                 }

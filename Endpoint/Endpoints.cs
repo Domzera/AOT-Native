@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Net.Security;
 using WebApplication1.DTO;
 using WebApplication1.Interface;
 using WebApplication1.Service;
@@ -181,6 +182,10 @@ namespace WebApplication1.Endpoint
                 _error.AddErrorRegister(ex.Message, operationType);
                 return false;
             }
+        }
+        internal object hello()
+        {
+            return "Esta é a pagina inicial da API feita em AOT-Native Core 9 com o postgreSQL como BD!";
         }
     }
 }

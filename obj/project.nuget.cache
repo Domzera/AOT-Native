@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WTDtsFIdD60=",
+  "dgSpecHash": "TX3ajL9VCB0=",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.4\\microsoft.bcl.cryptography.9.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\6.1.2\\microsoft.data.sqlclient.6.1.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\6.0.2\\microsoft.data.sqlclient.sni.runtime.6.0.2.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\9.0.8\\microsoft.dotnet.ilcompiler.9.0.8.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\9.0.11\\microsoft.dotnet.ilcompiler.9.0.11.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.4\\microsoft.extensions.caching.abstractions.9.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.4\\microsoft.extensions.caching.memory.9.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.4\\microsoft.extensions.dependencyinjection.abstractions.9.0.4.nupkg.sha512",
@@ -40,7 +40,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.4\\system.security.cryptography.pkcs.9.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.4\\system.security.cryptography.protecteddata.9.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\9.0.5\\system.text.json.9.0.5.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.8\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.8.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\9.0.11\\runtime.win-x64.microsoft.dotnet.ilcompiler.9.0.11.nupkg.sha512"
   ],
   "logs": []
 }

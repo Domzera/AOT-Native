@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\service\\registervalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:service\\registervalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\webapplication1.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:webapplication1.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\service\\crypter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:service\\crypter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,28 +54,47 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Repository\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Repository\\UserRepository.cs",
-              "RelativeToolTip": "Repository\\UserRepository.cs",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAwwJkAAAANAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Crypter.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Service\\Crypter.cs",
+              "RelativeDocumentMoniker": "Service\\Crypter.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Service\\Crypter.cs",
+              "RelativeToolTip": "Service\\Crypter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T20:34:05.97Z",
+              "WhenOpened": "2025-12-12T19:18:34.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegisterValidation.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Service\\RegisterValidation.cs",
-              "RelativeDocumentMoniker": "Service\\RegisterValidation.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Service\\RegisterValidation.cs",
-              "RelativeToolTip": "Service\\RegisterValidation.cs",
-              "ViewState": "AgIAAFQBAAAAAAAAAAAAAJ0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAApwBkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T19:08:35.439Z",
+              "WhenOpened": "2025-12-12T12:37:42.887Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 911,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WebApplication1.http",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\WebApplication1.http",
+              "RelativeDocumentMoniker": "WebApplication1.http",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\WebApplication1.http",
+              "RelativeToolTip": "WebApplication1.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-12-12T20:38:53.992Z",
               "EditorCaption": ""
             }
           ]

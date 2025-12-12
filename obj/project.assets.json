@@ -181,7 +181,7 @@
           }
         }
       },
-      "Microsoft.DotNet.ILCompiler/9.0.8": {
+      "Microsoft.DotNet.ILCompiler/9.0.11": {
         "type": "package",
         "build": {
           "build/Microsoft.DotNet.ILCompiler.props": {}
@@ -857,10 +857,10 @@
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
       ]
     },
-    "Microsoft.DotNet.ILCompiler/9.0.8": {
-      "sha512": "cMwVh5hsxAhv+oMHQdgcXodt2kDpfviofBO4IXupSAHJW2vZOZOOIhvPWRGO6NeGcP8SR4OpSwktRqb0i79KFA==",
+    "Microsoft.DotNet.ILCompiler/9.0.11": {
+      "sha512": "Odqp3vop0UYRcnhDSl+vLbKMqmR3S83UTGDtEonJ9I0NWMXijdhsD6rCC+IRodPIUZ7zXIFLzrT1gtJkAkOEIg==",
       "type": "package",
-      "path": "microsoft.dotnet.ilcompiler/9.0.8",
+      "path": "microsoft.dotnet.ilcompiler/9.0.11",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -879,7 +879,7 @@
         "build/NativeAOT.natvis",
         "build/WindowsAPIs.txt",
         "build/findvcvarsall.bat",
-        "microsoft.dotnet.ilcompiler.9.0.8.nupkg.sha512",
+        "microsoft.dotnet.ilcompiler.9.0.11.nupkg.sha512",
         "microsoft.dotnet.ilcompiler.nuspec",
         "runtime.json",
         "tools/netstandard/ILCompiler.Build.Tasks.deps.json",
@@ -1731,7 +1731,7 @@
     "net9.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.10",
       "Microsoft.Data.SqlClient >= 6.1.2",
-      "Microsoft.DotNet.ILCompiler >= 9.0.8",
+      "Microsoft.DotNet.ILCompiler >= 9.0.11",
       "Microsoft.NET.ILLink.Tasks >= 9.0.11",
       "Npgsql >= 9.0.4"
     ]
@@ -1797,7 +1797,7 @@
           "Microsoft.DotNet.ILCompiler": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[9.0.8, )",
+            "version": "[9.0.11, )",
             "autoReferenced": true
           },
           "Microsoft.NET.ILLink.Tasks": {
@@ -1825,7 +1825,7 @@
         "downloadDependencies": [
           {
             "name": "runtime.win-x64.Microsoft.DotNet.ILCompiler",
-            "version": "[9.0.8, 9.0.8]"
+            "version": "[9.0.11, 9.0.11]"
           }
         ],
         "frameworkReferences": {
