@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\webapplication1.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:webapplication1.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|c:\\users\\admin\\desktop\\agency\\teste\\webapplication1\\service\\crypter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F930382-30C8-4AB3-B935-616932E9F161}|WebApplication1.csproj|solutionrelative:service\\crypter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 911,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,51 +38,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Crypter.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Service\\Crypter.cs",
-              "RelativeDocumentMoniker": "Service\\Crypter.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Service\\Crypter.cs",
-              "RelativeToolTip": "Service\\Crypter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T19:18:34.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAApwBkAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T12:37:42.887Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 911,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WebApplication1.http",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\WebApplication1.http",
-              "RelativeDocumentMoniker": "WebApplication1.http",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Agency\\Teste\\WebApplication1\\WebApplication1.http",
-              "RelativeToolTip": "WebApplication1.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-12-12T20:38:53.992Z",
-              "EditorCaption": ""
             }
           ]
         }

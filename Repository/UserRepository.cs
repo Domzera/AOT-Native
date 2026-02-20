@@ -150,7 +150,7 @@ namespace WebApplication1.Repository
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro ao atualizar usuário: " + ex.Message);
+                Console.WriteLine("Erro ao deletar usuário: " + ex.Message);
                 return false;
             }
         }

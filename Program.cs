@@ -39,6 +39,10 @@ builder.Services.AddScoped<DbContext>();
 
 var app = builder.Build();
 
+// As rotas podem ser defindas em outro arquivo utilizando a seguinte linha de comenado
+
+// AgencyEndPoint.Map(app);
+
 // Define os endpoints HTTP
 // Esses endpoints estão no Program.cs mas poderiam ser definidos em arquivo serparado usando o Map
 
